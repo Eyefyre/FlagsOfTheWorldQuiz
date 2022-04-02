@@ -1,0 +1,87 @@
+body {
+    background: url('https://source.unsplash.com/twukN12EN7c/1920x1080');
+    background: url('background.webp');
+    height: 100vh;
+  }
+
+/* BASIC */
+
+html {
+  background-color: #56baed;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
+
+.container{
+  background-color: rgba(0, 0, 0, 0.8);
+  padding:25px;
+
+}
+
+.btn{
+  padding:50px;
+  background-color: rgba(255, 255, 255, 1);
+  border-style: solid;
+  border-color: black;
+}
+
+.choiceButton{
+  padding:50px;
+  margin:25px;
+  background-color: rgba(255, 255, 255, 1);
+  border-style: solid;
+  border-color: black;
+}
+
+.btn:hover{
+  padding:50px;
+  background-color: rgba(0, 0, 255,1);
+  border-style: solid;
+  border-color: black;
+  color: white;
+}
+
+.choiceButton:hover{
+  padding:50px;
+  margin:25px;
+  background-color: rgba(0, 0, 255,1);
+  border-style: solid;
+  border-color: black;
+  color: white;
+}
+
+.btn.wrong{
+  padding:50px;
+  margin:25px;
+  background-color: rgba(255, 0, 0, 1);
+  border-style: solid;
+  border-color: black;
+}
+
+.btn.right{
+  padding:50px;
+  margin:25px;
+  background-color: rgba(0, 255, 0, 1);
+  border-style: solid;
+  border-color: black;
+}
+
+.questionFlag, #starticon{
+  height:25vh;
+  width:auto;
+}
+
+.btn:disabled{
+  padding:50px;
+  margin:25px;
+  border-style: solid;
+  border-color: black;
+  opacity: 1;
+} 
+
+#resultsScreen{
+  color: white;
+}
