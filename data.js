@@ -78,6 +78,9 @@ $(document).ready(function () {
         $(this).parent().parent().parent().delay(1500).fadeOut(function () {
             updateQuestionMarker(nextQuestion,noOfQuestions);
             $(".choiceButton").prop("disabled", false);
+            $(this).removeClass("wrong");
+            $(this).removeClass("right");
+            $("button:contains(" + $(this).parent().parent().siblings("img").attr("id") + ")").removeClass("right")
             if (currentQuestion == quizSet.length) {
                 $("#quiz-screen").fadeOut(function () {
                     $("#quiz-screen").attr("style", "display: none !important");
