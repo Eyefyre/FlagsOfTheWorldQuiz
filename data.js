@@ -2,16 +2,17 @@ var jsonFlags = null;
 var quizSet = [];
 var answers = [];
 var usedFlags = [];
+var noOfQuestions = 5;
 
 function startQuiz() {
     quizSet = [];
     answers = [];
     usedFlags = [];
-    var noOfQuestions = 2;
     pickQuestionsForQuiz(noOfQuestions);
     for (var i = 0; i < noOfQuestions; i++) {
         appendQuizQuestion(quizSet[i].name, i + 1)
     }
+    updateQuestionMarker(1,noOfQuestions);
 }
 
 function pickQuestionsForQuiz(noOfQuestions) {
@@ -48,6 +49,7 @@ $(document).ready(function () {
             $(".startBlock").attr("style", "display: none !important");
             $("#quiz-screen").fadeIn();
         });
+        
     });
     $("#playAgainButton").click(function () {
         $("#resultsScreen").fadeOut(function () {
@@ -72,7 +74,9 @@ $(document).ready(function () {
         console.log(currentQuestion);
         console.log(nextQuestion);
         $(".choiceButton").prop("disabled", true)
+        $(".questionMarker").delay(1500).fadeOut();
         $(this).parent().parent().parent().delay(1500).fadeOut(function () {
+            updateQuestionMarker(nextQuestion,noOfQuestions);
             $(".choiceButton").prop("disabled", false);
             if (currentQuestion == quizSet.length) {
                 $("#quiz-screen").fadeOut(function () {
@@ -83,11 +87,36 @@ $(document).ready(function () {
 
             }
             else {
+                $(".questionMarker").fadeIn();
                 $("#question" + nextQuestion.toString()).fadeIn();
             }
         });
     });
 });
+
+function updateQuestionMarker(currentQuestion,totalQuestions){
+    $(".questionMarker").text(currentQuestion + "/" + totalQuestions);
+}
+
+function alterStartingQuestions(num) {
+    var testNum = noOfQuestions + num;
+    if (testNum > 0 && testNum < 250) {
+        console.log("In Range");
+        noOfQuestions += num;
+        $("#startingQuestions").text(noOfQuestions);
+    }
+    else {
+        if (testNum < 1) {
+            noOfQuestions = 1;
+            $("#startingQuestions").text(noOfQuestions);
+        }
+        if (testNum > 250) {
+            noOfQuestions = 250;
+            $("#startingQuestions").text(noOfQuestions);
+        }
+    }
+    console.log(noOfQuestions);
+}
 
 function logAnswers(answer, questionNumber) {
     answers.push({ questionNumber: questionNumber.replace("question", ""), answer: answer })
@@ -117,35 +146,27 @@ function appendQuizQuestion(countryFlag, flagNum) {
     var answer3 = choiceArray[2];
     var answer4 = choiceArray[3];
     if (flagNum === 1) {
-        var line1 = "<div class='text-center' id='question" + flagNum + "'>" +
-            "<img class='img questionFlag' src='./FlagData/" + countryFlag + ".png' id='" + countryFlag + "' alt='User Icon' />" +
+        var line1 = "<div><h1 class='questionMarker'>1/5</h1></div><div class='text-center' id='question" + flagNum + "'>" +
+            "<img class='img-fluid questionFlag' src='./FlagData/" + countryFlag + ".png' id='" + countryFlag + "' alt='Question Flag' />" +
             "<div class='row'>" +
-            "<div class='col'><button type='button' class='col-9 btn choiceButton' id='choice1'>" + answer1 + "</button>" +
-            "</div>" +
-            "<div class='col'><button type='button' class='col-9 btn choiceButton' id='choice2'>" + answer2 + "</button>" +
-            "</div>" +
-            "</div>" +
-            "<div class='row'>" +
-            "<div class='col'><button type='button' class='col-9 btn choiceButton' id='choice3'>" + answer3 + "</button>" +
-            "</div>" +
-            "<div class='col'><button type='button' class='col-9 btn choiceButton' id='choice4'>" + answer4 + "</button>" +
+            "<div class='col m-3'><button type='button' class='w-100 h-100 mx-auto choiceButton' id='choice1'>" + answer1 + "</button></div>" +
+            "<div class='col m-3'><button type='button' class='w-100 h-100 mx-auto choiceButton'id='choice2'>" + answer2 + "</button></div>" +
+            "<div class='w-100 d-none d-md-block'></div>" +
+            "<div class='col m-3'><button type='button' class='w-100 mx-auto h-100 choiceButton' id='choice3'>" + answer3 + "</button></div>" +
+            "<div class='col m-3'><button type='button' class='w-100 mx-auto h-100 choiceButton' id='choice4'>" + answer4 + "</button>" +
             "</div>" +
             "</div>" +
             "</div>"
     }
     else {
-        var line1 = "<div class='text-center' style='display:none' id='question" + flagNum + "'>" +
-            "<img class='img questionFlag' src='./FlagData/" + countryFlag + ".png' id='" + countryFlag + "' alt='User Icon' />" +
+        var line1 = "<div style='display:none'><h1 class='questionMarker'>1/5</h1></div><div class='text-center' style='display:none' id='question" + flagNum + "'>" +
+            "<img class='img-fluid questionFlag' src='./FlagData/" + countryFlag + ".png' id='" + countryFlag + "' alt='Question Flag' />" +
             "<div class='row'>" +
-            "<div class='col'><button type='button' class='col-9 btn choiceButton' id='choice1'>" + answer1 + "</button>" +
-            "</div>" +
-            "<div class='col'><button type='button' class='col-9 btn choiceButton' id='choice2'>" + answer2 + "</button>" +
-            "</div>" +
-            "</div>" +
-            "<div class='row'>" +
-            "<div class='col'><button type='button' class='col-9 btn choiceButton' id='choice3'>" + answer3 + "</button>" +
-            "</div>" +
-            "<div class='col'><button type='button' class='col-9 btn choiceButton' id='choice4'>" + answer4 + "</button>" +
+            "<div class='col m-3'><button type='button' class='w-100 h-100 mx-auto choiceButton' id='choice1'>" + answer1 + "</button></div>" +
+            "<div class='col m-3'><button type='button' class='w-100 h-100 mx-auto choiceButton'id='choice2'>" + answer2 + "</button></div>" +
+            "<div class='w-100 d-none d-md-block'></div>" +
+            "<div class='col m-3'><button type='button' class='w-100 mx-auto h-100 choiceButton' id='choice3'>" + answer3 + "</button></div>" +
+            "<div class='col m-3'><button type='button' class='w-100 mx-auto h-100 choiceButton' id='choice4'>" + answer4 + "</button>" +
             "</div>" +
             "</div>" +
             "</div>"

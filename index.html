@@ -5,11 +5,9 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
   <title>Flags Quiz</title>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="data.js"></script>
@@ -17,34 +15,73 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-image" onload="loadJSONData()">
+<body class="bg-image img-fluid" onload="loadJSONData()">
   <div class="container d-flex justify-content-center flex-column min-vh-100 text-center">
     <div class="startBlock">
       <div class="row">
         <div class="col">
-          <!-- <img src="./FlagData/Nepal.png" id="starticon" alt="User Icon" /> -->
-         <h1>Flags of the World</h1>>
+          <h1 style="font-size:10vh;color:white">Flags of the world</h1>
+          <div class="w-100 d-none d-md-block"></div>
+          <div class="col">
+            <h1 style="color:white">Questions</h1>
+            <h1 id="startingQuestions">5</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+      </div>
+      <div class="row my-5">
+        <div class="col-sm-3">
+          <button type="button" onclick="alterStartingQuestions(-10)" class="startingButtons btn w-100">-10</button>
+        </div>
+        <div class="col-sm-3">
+          <button type="button" onclick="alterStartingQuestions(-1)" id="" class="startingButtons btn w-100">-1</button>
+        </div>
+        <div class="col-sm-3">
+          <button type="button" onclick="alterStartingQuestions(+1)" id="" class="startingButtons btn w-100">+1</button>
+        </div>
+        <div class="col-sm-3">
+          <button type="button" onclick="alterStartingQuestions(+10)" id="" class="startingButtons btn w-100">+10</button>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <!-- <img src="./FlagData/Nepal.png" id="starticon" alt="User Icon" /> -->
-          <button type="button" onclick="startQuiz()" id="startQuizButton" class="btn w-100">Start</button>
+          <button type="button" onclick="startQuiz()" id="startQuizButton" class="startingButtons btn w-100">Start</button>
         </div>
       </div>
     </div>
-    <div id="quiz-screen" style="display:none!important">
+    <div id="quiz-screen" style="display:none;">
+      <!-- <div class='text-center'>
+        <img class='img-fluid questionFlag' src='./FlagData/Iran.png' />
+        <div class='row'>
+          <div class='col m-3'><button type='button' class='w-100 h-100 mx-auto choiceButton' id='choice1'>" +
+              Bosnia and Herzogovina +
+              "</button>
+          </div>
+          <div class='col m-3'><button type='button' class='w-100 h-100 mx-auto choiceButton'
+              id='choice2'>"Japan"</button>
+          </div>
+          <div class="w-100 d-none d-md-block"></div>
+          <div class='col m-3'><button type='button' class='w-100 mx-auto h-100 choiceButton' id='choice3'>"Ireland
+              "</button>
+          </div>
+          <div class='col m-3'><button type='button' class='w-100 mx-auto h-100 choiceButton' id='choice4'>"Saint Martin
+              herzogovina blocks"</button>
+          </div>
+        </div>
+      </div> -->
     </div>
-    <div id="resultsScreen" style="display:none!important">
+    <div id="resultsScreen" style="display:none">
       <div class='row'>
-        <div class="col">
-          <h1>Your Score</h1>
+        <div class="col-12">
+          <h1 class="m-5" style="font-size:5vh">Your Score</h1>
         </div>
-        <div class="col">
-          <h4 id="result">3/10</h4>
+        <div class="col-12">
+          <h1 class="m-5" style="font-size:5vh" id="result">3/10</h1>
         </div>
-        <div class="col">
-          <button type="button" id="playAgainButton" class="btn">Play Again</button>
+        <div class="col-12">
+          <button type="button" style="font-size:5vh" id="playAgainButton" class="m-5">Play Again</button>
         </div>
       </div>
     </div>

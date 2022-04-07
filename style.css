@@ -1,10 +1,15 @@
-body {
-    background: url('https://source.unsplash.com/twukN12EN7c/1920x1080');
-    background: url('background.webp');
-    height: 100vh;
-  }
+body,
+html {
+  height: 100vh;
+}
 
-/* BASIC */
+body {
+  background-image: url("background.webp");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 html {
   background-color: #56baed;
@@ -15,73 +20,114 @@ body {
   height: 100vh;
 }
 
-.container{
+.container {
   background-color: rgba(0, 0, 0, 0.8);
-  padding:25px;
+  padding: 25px;
 
 }
 
-.btn{
-  padding:50px;
+.btn {
   background-color: rgba(255, 255, 255, 1);
   border-style: solid;
   border-color: black;
 }
 
-.choiceButton{
-  padding:50px;
-  margin:25px;
-  background-color: rgba(255, 255, 255, 1);
-  border-style: solid;
-  border-color: black;
-}
-
-.btn:hover{
-  padding:50px;
-  background-color: rgba(0, 0, 255,1);
+.btn:hover {
+  background-color: rgba(0, 0, 255, 1);
   border-style: solid;
   border-color: black;
   color: white;
 }
 
-.choiceButton:hover{
-  padding:50px;
-  margin:25px;
-  background-color: rgba(0, 0, 255,1);
+.choiceButton,
+.choiceButton:hover:disabled {
+  background-color: rgba(255, 255, 255, 0.8);
   border-style: solid;
-  border-color: black;
-  color: white;
+  border-color: white;
+  border-width: 10px;
+  border-radius: 15px;
 }
 
-.btn.wrong{
-  padding:50px;
-  margin:25px;
-  background-color: rgba(255, 0, 0, 1);
-  border-style: solid;
-  border-color: black;
+.choiceButton:hover {
+  border-color: blue;
 }
 
-.btn.right{
-  padding:50px;
-  margin:25px;
-  background-color: rgba(0, 255, 0, 1);
-  border-style: solid;
-  border-color: black;
+.wrong,
+.wrong:hover:disabled {
+  border-color: red !important;
+  background-color: rgba(250, 213, 208, 0.8);
+  color: black;
 }
 
-.questionFlag, #starticon{
-  height:25vh;
-  width:auto;
+.right,
+.right:hover:disabled {
+  border-color: greenyellow !important;
+  background-color: rgba(222, 253, 225, 0.8);
+  color: black;
 }
 
-.btn:disabled{
-  padding:50px;
-  margin:25px;
+
+.questionFlag,
+#starticon {
+  height: 25vh;
+  width: auto;
+}
+
+.btn:disabled {
+  padding: 50px;
+  margin: 25px;
   border-style: solid;
   border-color: black;
   opacity: 1;
-} 
+}
 
-#resultsScreen{
+#resultsScreen {
   color: white;
+}
+
+#startingQuestions {
+  font-size: 10vh;
+  width: auto;
+  color:white;
+}
+
+.choiceButton, #questionMarker {
+  font-size: 4vh;
+}
+
+.questionMarker {
+  font-size: 6vh;
+  color:white
+}
+
+#playAgainButton {
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-style: solid;
+  border-color: white;
+  border-width: 15px;
+  border-radius: 15px;
+}
+
+#playAgainButton:hover {
+  padding: 50px;
+  border-color: blue;
+}
+
+.startingButtons{
+  font-size: 5vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-style: solid;
+  border-color: white;
+  border-width: 10px;
+  border-radius: 15px;
+}
+
+.startingButtons:hover{
+  font-size: 5vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-style: solid;
+  border-color: white;
+  border-width: 10px;
+  border-radius: 15px;
 }
